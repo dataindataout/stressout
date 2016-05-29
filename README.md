@@ -1,10 +1,11 @@
 # stressout
 Stressing out your database.
 
-TODO: error handling
-TODO: cross-platform testing
-TODO: handling writes
-TODO: sysbench scheduling using scheduler.lua
+TODO: 
+error handling
+cross-platform testing
+handling writes
+sysbench scheduling using scheduler.lua
 
 # Install dependencies
 
