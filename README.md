@@ -1,9 +1,7 @@
 # stressout
 Stressing out your database.
 
-asdf
-
-TODO: 
+todo:
 error handling
 cross-platform testing
 handling writes
