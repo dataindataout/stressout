@@ -2,10 +2,10 @@
 Stressing out your database.
 
 todo:
-error handling
-cross-platform testing
-handling writes
-sysbench scheduling using scheduler.lua
+<li>error handling</li>
+<li>cross-platform testing</li>
+<li>handling writes</li>
+<li>sysbench scheduling using scheduler.lua</li>
 
 # Install dependencies
 
