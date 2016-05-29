@@ -7,7 +7,7 @@ todo:
 <li>handling writes</li>
 <li>sysbench scheduling using scheduler.lua</li>
 
-# Install dependencies
+## Install dependencies
 
 You need the mysql client if you're running this on a remote machine. Here's one way to get that:
 > brew install mariadb
@@ -19,7 +19,7 @@ Install lua (luarocks will come with it) and the luasql-mysql and date modules:
 
 > luarocks install date
 
-# Enable the general log in MySQL
+## Enable the general log in MySQL
 
 Turn on your general log and store results in a table.
 
@@ -29,7 +29,7 @@ Turn on your general log and store results in a table.
 
 Don't forget to periodically truncate the general log table and consider turning it off after gathering queries, to avoid filling up your disk, especially on a busy server.
 
-# Convert the general log table to MyISAM for indexed searches.
+## Convert the general log table to MyISAM for indexed searches.
 
 > mysql -uuser -ppassword -e"set global general_log='OFF'"
 
@@ -41,9 +41,9 @@ Don't forget to periodically truncate the general log table and consider turning
 
 > mysql -uuser -ppassword -e"set global general_log='ON'"
 
-# After allowing time for the queries to be logged, parse the log into per-thread, timed query playbooks, with a scheduler.lua file too.
+## After allowing time for the queries to be logged, parse the log into per-thread, timed query playbooks, with a scheduler.lua file too.
 
 > ./convert.lua
 
-# Feed the scheduler.lua and the [thread].lua files to sysbench.
+## Feed the scheduler.lua and the [thread].lua files to sysbench.
 
