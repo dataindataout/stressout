@@ -6,6 +6,7 @@
 -- This is also my lua hello world :)
 
 -- Valerie Parham-Thompson for sharing 2016
+-- keep it open and free
 
 -- TODO: error handling
 -- TODO: cross-platform testing
