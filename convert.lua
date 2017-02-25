@@ -1,4 +1,4 @@
-#!/usr/local/bin/lua
+#!/usr/bin/lua
 
 -- Script to convert MySQL general log
 -- into a replayable, timed list of queries
