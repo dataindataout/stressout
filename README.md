@@ -9,14 +9,13 @@ todo:
 
 ## Install dependencies
 
-Install lua:
-> yum install lua
+You need the mysql client if you're running this on a remote machine. Here's one way to get that:
+> brew install mariadb
 
-Install luarocks:
-> https://github.com/luarocks/luarocks/wiki/Installation-instructions-for-Unix
+Install lua (luarocks will come with it) and the luasql-mysql and date modules:
+> brew install lua
 
-Install the luasql-mysql and date modules:
-> luarocks install luasql-mysql MYSQL_DIR=/var/lib/mysql MYSQL_INCDIR=/usr/include/mysql
+> luarocks install luasql-mysql MYSQL_DIR=/usr/local/bin MYSQL_INCDIR=/usr/local/Cellar/mariadb/10.1.14/include/mysql
 
 > luarocks install date
 
