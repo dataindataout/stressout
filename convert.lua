@@ -19,7 +19,7 @@ mysql = require "luasql.mysql"
 date = require "date"
 
 local env  = mysql.mysql()
-local conn = env:connect('mysql','valerie','password','192.168.1.234')
+local conn = env:connect('mysql','valerie','password','192.168.56.68')
 
 -- Capture current starting and ending position
 
