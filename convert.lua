@@ -14,7 +14,7 @@
 -- #################################################################################
 
 -- Open a MySQL connection using parameters passed into script
-export LUA_PATH='/usr/local/lib/lua/5.1/luasql/mysql.so';
+export LUA_PATH = '/usr/local/lib/lua/5.1/luasql/mysql.so';
 mysql = require "luasql.mysql"
 date = require "date"
 
