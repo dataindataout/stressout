@@ -7,15 +7,17 @@ todo:
 <li>handling writes</li>
 <li>sysbench scheduling using scheduler.lua</li>
 
+This of course doesn't have to be written in lua to create lua files. I just wanted to use lua.
+
 ## Install dependencies
 
-You need the mysql client if you're running this on a remote machine. Here's one way to get that:
+You need the mysql client if you're running this on a remote machine. Here's one way to get that on Mac:
 > brew install mariadb
 
 Install lua (luarocks will come with it) and the luasql-mysql and date modules:
 > brew install lua
 
-> luarocks install luasql-mysql MYSQL_DIR=/usr/local/bin MYSQL_INCDIR=/usr/local/Cellar/mariadb/10.1.14/include/mysql
+> luarocks install luasql-mysql MYSQL_DIR=/usr/local/bin MYSQL_INCDIR=/usr/local/Cellar/mariadb/10.1.21/include/mysql
 
 > luarocks install date
 

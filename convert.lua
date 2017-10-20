@@ -1,12 +1,23 @@
-#!/usr/bin/lua
+#!/usr/local/bin/lua
 
--- Script to convert MySQL general log
--- into a replayable, timed list of queries
+-- (c) 2016-2017 Valerie Parham-Thompson
 
--- This is also my lua hello world :)
+-- This file is part of stressout.
 
--- Valerie Parham-Thompson for sharing 2016
--- keep it open and free
+-- stressout is free software: you can redistribute it and/or modify
+-- it under the terms of the GNU General Public License as published by
+-- the Free Software Foundation, either version 3 of the License, or
+-- (at your option) any later version.
+
+-- stressout is distributed in the hope that it will be useful,
+-- but WITHOUT ANY WARRANTY; without even the implied warranty of
+-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-- GNU General Public License for more details.
+
+-- You should have received a copy of the GNU General Public License
+-- along with stressout.  If not, see <http://www.gnu.org/licenses/>.
+
+-- #################################################################################
 
 -- TODO: error handling
 -- TODO: cross-platform testing
@@ -18,14 +29,16 @@ mysql = require "luasql.mysql"
 date = require "date"
 
 local env  = mysql.mysql()
-local conn = env:connect('mysql','root','','192.168.56.91')
+
+-- change this to your user, pass, and host
+local conn = env:connect('mysql','root','password','localhost')
 
 -- Capture current starting and ending position
 
 cursor_capture_times,errorString = conn:execute("select min(event_time) as capture_start_time, max(event_time) as capture_end_time from mysql.general_log")
 
 row_capture_times = cursor_capture_times:fetch ({}, "start")
-
+  
 while row_capture_times do
    capture_start_time = row_capture_times.capture_start_time
    capture_end_time = row_capture_times.capture_end_time
@@ -52,7 +65,7 @@ while row_threads do
    io.write("-- ================\n")
    io.write(current_thread_id .. ".lua\n")
    thread_start_offset = date.diff(current_thread_start_time,capture_start_time):spanseconds()
-   io.write(thread_start_offset .. "\n")
+   io.write("sleep(" .. thread_start_offset .. ")\n")
    io.write("-- " .. current_thread_start_time .. "\n")
    
    io.close(scheduler_file)
@@ -84,7 +97,7 @@ while row_threads do
           
           -- this will be a function calling os.execute("sleep " .. tonumber(n))
           io.write("sleep(" .. thread_detail_start_offset .. ")\n")
-          io.write("rs = db_query('" .. thread_detail_query .. "')\n")
+          io.write("c1:query('" .. thread_detail_query .. "')\n")
 
           io.write("-- ================\n")
 
